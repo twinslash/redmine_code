@@ -1,0 +1,5 @@
+<h2><%= t(:edit_code) %></h2>
+<%= labelled_form_for @code, :url => project_code_path(@project, @code), :html => {:method => :put} do |f| %>
+	<%= render :partial => 'codes/form', :locals => { :f => f } %>
+	<%= submit_tag l(:button_save) %>
+<% end %>

@@ -1,0 +1,33 @@
+<% if @project.codes %>
+  <table class="list">
+    <thead><tr>
+      <th><%= t(:field_name) %></th>
+      <th><%= t(:field_gitlab_link) %></th>
+      <th><%= t(:field_description) %></th>
+      <th></th>
+    </tr></thead>
+    <tbody>
+      <% for code in  @project.codes %>
+        <% unless code.new_record? %>
+          <tr class="<%= cycle 'odd', 'even' %>">
+            <td><%= code.name %></td>
+            <td><%= code.gitlab_link %></td>
+            <td><%= code.description %></td>
+            <td class="buttons">
+            	<% if User.current.allowed_to?(:manage_code, @project) %>          
+                <%= link_to l(:button_edit), edit_project_code_path(@project, code), :class => 'icon icon-edit' %>
+                <%= delete_link project_code_path(@project, code) %>
+        		  <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>  
+<p>
+  <%= link_to t(:new_code), new_project_code_path(@project), :class => 'icon icon-add'  if User.current. 
+       allowed_to?(:manage_code, @project) %>
+</p>

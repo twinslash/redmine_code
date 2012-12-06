@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  code: "Code"
+  field_gitlab_link: "Gitlab Link"
+  new_code: "New Code"
+  edit_code: "Edit Code"
