@@ -19,11 +19,7 @@ module ProjectsHelperPatch
     def project_settings_tabs_with_code
       tabs = project_settings_tabs_without_code
       if @project.module_enabled?("code")
-        tabs.push({ :name => 'code',
-                    :controller => :codes,
-                    :action => :index,
-                    :partial => 'codes/index',
-                    :label => :code })
+        call_hook(:helper_projects_settings_tabs, { :tabs => tabs })
       end
       return tabs
     end
