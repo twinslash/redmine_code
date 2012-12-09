@@ -1,14 +1,5 @@
 require 'redmine'
-require 'redmine_code/hooks'
-
-Rails.configuration.to_prepare do
-  unless ProjectsHelper.included_modules.include?(ProjectsHelperPatch)
-    ProjectsHelper.send(:include, ProjectsHelperPatch)
-  end
-  unless Project.included_modules.include?(ProjectPatch)
-    Project.send(:include, ProjectPatch)
-  end
-end
+require 'redmine_code'
 
 Redmine::Plugin.register :redmine_code do
   name 'Redmine Code plugin'
