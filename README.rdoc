@@ -1,3 +1,19 @@
-= redmine_code
+== Redmine_code
 
-Description goes here
+This plugin is used to manage Code objects.
+
+== Requirements
+
+* Redmine 2.0+
+
+
+== Installation
+
+Choose folder /plugins, make command:
+
+       git clone git://github.com/twinslash/redmine_code.git
+run:
+       bundle install
+       bundle exec rake redmine:plugins NAME=redmine_code RAILS_ENV=production
+
+Restart rails server.
